@@ -1,8 +1,8 @@
 public class Cachorro extends Animal {
     private String porte;
 
-    public Cachorro(String nome, String porte){
-        super(nome);
+    public Cachorro(int id, String nome, String porte){
+        super(id, nome);
         this.porte = porte;
     }
 

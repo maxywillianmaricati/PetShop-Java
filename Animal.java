@@ -2,9 +2,9 @@ public abstract class Animal {
     protected int id;
     protected String nome;
 
-    public Animal(String nome){
-        this.id = this.getId();
-        this.nome = this.getNome();
+    public Animal(int id , String nome){
+        this.id = id;
+        this.nome = nome;
     }
 
 

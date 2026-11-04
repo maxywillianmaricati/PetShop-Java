@@ -3,5 +3,4 @@ public interface Servico {
     double getPreco();
     boolean isPronto();
     Animal getPet();
-
 }

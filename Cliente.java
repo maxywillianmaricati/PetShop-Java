@@ -6,7 +6,8 @@ public class Cliente {
     private String telefone;
     private ArrayList<Animal> pets;
 
-    public Cliente(String nome, String telefone) {
+    public Cliente(int id, String nome, String telefone) {
+        this.id = id;
         this.nome = nome;
         this.telefone = telefone;
         this.pets = new ArrayList<Animal>();
