@@ -1,9 +1,13 @@
 public class Cachorro extends Animal {
     private String porte;
 
-    @Override
-    public String descricao() {
-        return "Nome do Cachorro: " + this.nome + ", Porte: " + this.porte;
+    public Cachorro(String nome, String porte){
+        super(nome);
+        this.porte = porte;
     }
 
+    @Override
+    public String descricao() {
+        return "[" + this.id + "] " + this.nome + " - Cachorro de porte " + this.porte;
+    }
 }

@@ -16,6 +16,4 @@ public class Cliente {
         this.pets.add(pet);
     }
 
-    
-
-}
+    }
