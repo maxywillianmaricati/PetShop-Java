@@ -8,17 +8,10 @@ public class Tosa implements Servico {
         this.preco = 60;
     }
 
-    //adicionado pra conseguir deixar o getDescricao bonitinho
-    public String getStatus(){
-        if(this.pronto){
-            return "PRONTO";
-        }
-        return "EM ANDAMENTO";
-    }
-
+    //adicionar o Status
     @Override
     public String getDescricao() {
-        return "Tosa para " + pet.getNome() + " - Preço: R$ " + this.preco + " | Status: " + getStatus();
+        return "Tosa para " + pet.getNome() + " - Preço: R$ " + this.preco + " | Status: ";
     }
 
     @Override

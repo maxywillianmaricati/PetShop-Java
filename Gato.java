@@ -1,7 +1,7 @@
 public class Gato extends Animal {
     private int idadeAnos;
 
-        public Gato(int id, String nome, int idadeAnos){
+    public Gato(int id, String nome, int idadeAnos){
         super(id, nome);
         this.idadeAnos = idadeAnos; 
     }

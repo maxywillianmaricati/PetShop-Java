@@ -18,8 +18,11 @@ public class Main {
                     "8 - Listar Serviços\n" +
                     "9 - Sair\n");
 
-            System.out.printf("\nOPÇÃO: ");
+            System.out.printf("\nOpção: ");
             op = scanner.nextInt();
+            if(op==1){
+                
+            }
         }
     }
 }

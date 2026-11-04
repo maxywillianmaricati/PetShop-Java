@@ -8,17 +8,10 @@ public class Consulta implements Servico {
         this.preco = 120;
     }
 
-    //adicionado pra conseguir deixar o getDescricao bonitinho
-    public String getStatus(){
-        if(this.pronto){
-            return "PRONTO";
-        }
-        return "EM ANDAMENTO";
-    }
-
+    //adicionar o Status
     @Override
     public String getDescricao() {
-        return "Consulta para " + this.pet.getNome() + " - Preço: R$ " + this.preco + " | Status: " + getStatus();
+        return "Consulta para " + this.pet.getNome() + " - Preço: R$ " + this.preco + " | Status: " ; 
     }
 
     @Override

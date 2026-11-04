@@ -7,14 +7,13 @@ public abstract class Animal {
         this.nome = nome;
     }
 
-
     public int getId() {
-        return this.id;
+        return this.id;           
     }
 
     public String getNome() {
         return this.nome;
-    }
+    }   
 
     public abstract String descricao();
 }
