@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int op = 0;
 
         while (op != 9) {
@@ -19,10 +19,19 @@ public class Main {
                     "9 - Sair\n");
 
             System.out.printf("\nOpção: ");
-            op = scanner.nextInt();
+            op = sc.nextInt();
             if(op==1){
-                System.out.println("Id: ");
+                System.out.println("ID: ");
+                int id = sc.nextInt();
+                System.out.println("Nome: ");
+                String nome = sc.nextLine();
+                System.out.println("Telefone: ");
+                String telefone = sc.nextLine();
+                Cliente c1 = new Cliente(id,nome,telefone); 
+            } else if (op == 2){
+                System.out.println();
             }
+                
         }
     }
 }
