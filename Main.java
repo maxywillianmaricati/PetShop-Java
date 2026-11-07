@@ -10,7 +10,7 @@ public class Main {
         ArrayList<Cliente> clientes = new ArrayList<>();
         ArrayList<Servico> servicos = new ArrayList<>();
 
-        public static void cadastroCliente(){
+        public static void cadastroCliente(int id, String nome, String telefone, Cliente c){
         System.out.println("ID: ");
         int id = sc.nextInt();
         sc.nextLine();
