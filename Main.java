@@ -3,9 +3,29 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int op = 0;
 
+        Scanner sc = new Scanner(System.in);
+
+        int op = 0;
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        ArrayList<Servico> servicos = new ArrayList<>();
+
+        public static void cadastroCliente(){
+        System.out.println("ID: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        System.out.printf("\n--- Cadastro de cliente ---\nNome: ");
+        String nome = sc.nextLine();
+
+        System.out.println("Telefone: ");
+        String telefone = sc.nextLine();
+
+        Cliente c = new Cliente(id, nome, telefone);
+        clientes.add(c);
+        System.out.println("--- Cliente cadastrado ---");
+
+    }
         while (op != 9) {
             System.out.print("\n===== PetShop =====\n" +
                     "1 - Cadastrar Cliente\n" +
@@ -20,18 +40,18 @@ public class Main {
 
             System.out.printf("\nOpção: ");
             op = sc.nextInt();
+
+
             if(op==1){
-                System.out.println("ID: ");
-                int id = sc.nextInt();
-                System.out.println("Nome: ");
-                String nome = sc.nextLine();
-                System.out.println("Telefone: ");
-                String telefone = sc.nextLine();
-                Cliente c1 = new Cliente(id,nome,telefone); 
-            } else if (op == 2){
-                System.out.println();
+                cadastroCliente();
+
+            }else if(op == 2){
+                System.out.println("Cadastrar PET");
             }
-                
         }
     }
+
+
+
+
 }
