@@ -9,36 +9,42 @@ public class Cliente {
 
     public Cliente(String nome, String telefone) {
         this.id = proximoId++;
-        this.nome = nome;           
+        this.nome = nome;
         this.telefone = telefone;
         this.pets = new ArrayList<Animal>();
     }
 
-    public int getId(){ return this.id; }
+    public int getId() {
+        return this.id;
+    }
 
-    public String getNome(){ return this.nome; }
+    public String getNome() {
+        return this.nome;
+    }
 
-    public String getTelefone(){ return this.telefone; }
+    public String getTelefone() {
+        return this.telefone;
+    }
 
     public void adicionaPet(Animal pet) {
         this.pets.add(pet);
     }
 
-    public void listaPets(){
-        if(this.pets.size() == 0){
+    public void listaPets() {
+        if (this.pets.size() == 0) {
             System.out.println("Sem animais");
         }
-    for(int i=0;i<this.pets.size();i++){
-        System.out.println(" * "this.pets.get(i).descricao());
-    }
-    }
-
-
-    public Animal buscaPet(int id) {
-    for (int i = 0; i < pets.size(); i++) {
-        if (pets.get(i).getId() == id) {
-            return pets.get(i);
+        for (Animal animal : pets) {
+            System.out.println(animal.descricao());
         }
     }
-    return null;
+
+    public Animal buscaPet(int id) {
+        for (int i = 0; i < pets.size(); i++) {
+            if (pets.get(i).getId() == id) {
+                return pets.get(i);
+            }
+        }
+        return null;
+    }
 }
