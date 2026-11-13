@@ -11,8 +11,8 @@ public class Main {
         ArrayList<Cliente> clientes = new ArrayList<>();
         ArrayList<Servico> servicos = new ArrayList<>();
 
-        while (op!=9) {
-            System.out.println("\nBem-vindo ao Sistema do Pet Shop!");
+        while (op != 9) {
+            System.out.println("Bem-vindo ao Sistema do Pet Shop!");
             System.out.println("1 - Cadastrar Cliente");
             System.out.println("2 - Cadastrar Pet");
             System.out.println("3 - Listar Clientes e Pets");
@@ -27,74 +27,76 @@ public class Main {
             op = sc.nextInt();
             sc.nextLine();
 
-            //cadastro cliente
-            if (op==1) {
+            // cadastro cliente
+            if (op == 1) {
                 System.out.print("Nome do cliente: ");
-                String nome = sc.nextLine();
+                String nomeCliente = sc.nextLine();
                 System.out.print("Telefone: ");
                 String telefone = sc.nextLine();
 
-                Cliente novoCliente = new Cliente(nome, telefone);
+                Cliente novoCliente = new Cliente(nomeCliente, telefone);
                 clientes.add(novoCliente);
-                System.out.println("Cliente cadastrado!");
+                System.out.println("\nCliente cadastrado!" +
+                        "\nID do cliente " + nomeCliente + " :" + novoCliente.getId() + "\n");
 
-            } else if (op==2) {
+            } else if (op == 2) {
+                int idCliente;
                 System.out.print("ID do cliente: ");
-                int idCliente = sc.nextInt();
+                idCliente = sc.nextInt();
                 sc.nextLine();
 
-                System.out.print("Qual seu animal?\n(1-Cachorro\n2-Gato)\nOpção: ");
+                System.out.println("Qual seu animal?\n1-Cachorro\n2-Gato\n");
+                System.out.println("Opção: ");
                 tipo = sc.nextInt();
                 sc.nextLine();
 
-                //cadastro animal
-                if (tipo==1) {
+                // cadastro animal
+                if (tipo == 1) {
                     System.out.print("Nome do cachorro: ");
-                    String nome = sc.nextLine();
+                    String nomeDog = sc.nextLine();
                     System.out.print("Porte (P/M/G): ");
                     String porte = sc.nextLine();
 
-
-                    Cliente dono = null;
-                    for (Cliente c : clientes) {
-                        if (c.getId() == idCliente) {
-                            dono = c;
+                    for (Cliente pessoa : clientes) {
+                        if (pessoa.getId() == idCliente) {
+                            Cachorro dog = new Cachorro(nomeDog, porte);
+                            pessoa.adicionaPet(dog);
+                            System.out.println("\nDoguinho cadastrado para o cliente: " + pessoa.getNome());
+                            System.out.println("\nID do cliente: " + pessoa.getId());
                         }
-                    }
 
-                    if (dono == null) {
-                        System.out.println("Cliente não existe");
-                    } else {
-                        Cachorro novoDog = new Cachorro(nome, porte);
-                        dono.adicionaPet(novoDog);
-                        System.out.println("Cachorro cadastrado com sucesso");
                     }
+                    // nao consegui fazer uma funcao pra checar se o cliente existe
+                    // e fazer funcionar toda vez :(
+                    System.out.println("\nCliente não encontrado !\n" +
+                            "- Digite um ID de cliente correto !! \n");
                 }
 
                 if (tipo == 2) {
                     System.out.print("Nome do gato: ");
-                    String nome = sc.nextLine();
-                    System.out.print("Idade do gato: ");
+                    String nomeGato = sc.nextLine();
+                    System.out.print("Idade: ");
                     int idade = sc.nextInt();
-                    sc.nextLine();
 
-                    Cliente dono = null;
-                    for (Cliente c : clientes) {
-                        if (c.getId() == idCliente) {
-                            dono = c;
+                    for (Cliente pessoa : clientes) {
+                        if (pessoa.getId() == idCliente) {
+                            Gato gato = new Gato(nomeGato, idade);
+                            pessoa.adicionaPet(gato);
+                            System.out.println("Gatinho cadastrado para o cliente: " + pessoa.getNome());
+                            System.out.println("ID do cliente: " + pessoa.getId());
                         }
                     }
-
-                    if (dono == null) {
-                        System.out.println("Cliente não existe");
-                    } else {
-                        Gato novoGato = new Gato(nome, idade);
-                        dono.adicionaPet(novoGato);
-                        System.out.println("Gato cadastrado com sucesso" );
+                    if (idCliente < 1 || idCliente > clientes.size()) {
+                        System.out.println("\nCliente não encontrado\n- Digite um ID de cliente correto !!! \n");
                     }
                 }
+                // listar clientes e pets
+            } else if (op == 3) {
+                for (Cliente pessoa : clientes) {
+                    System.out.println("\n-- Pets de: " + pessoa.getNome() + " ---");
+                    pessoa.listaPets();
+                }
             }
-            
         }
     }
 }
