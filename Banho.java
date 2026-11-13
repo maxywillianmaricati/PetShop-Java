@@ -25,7 +25,7 @@ public class Banho implements Servico {
 
     @Override
     public String getDescricao() {
-        return "Banho para " + pet.getNome() + " - Preço: R$ " + this.preco + " | Status: ";
+        return "Banho para " + pet.getNome() + " - Preço: R$ " + this.preco + " | Status: " + this.getStatus();
     }
 
     @Override

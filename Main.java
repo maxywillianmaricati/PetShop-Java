@@ -195,23 +195,30 @@ public class Main {
                 sc.nextLine();
 
                 Servico servicoExiste = null;
+
                 for (Servico servico : servicos) {
                     if (servico.getId() == idServico) {
-                        servico.marcarPronto();
-                        System.out.println("--- Serviço entregue ---");
-                        System.out.println(servico.getDescricao());
-                    } else {
-                        System.out.println("[!] Serviço NÃO encontrado");
+                        servicoExiste = servico;
+                        break;
                     }
+                }
+
+                if (servicoExiste == null) {
+                    System.out.println("[!] Serviço NÃO encontrado");
+                } else {
+                    servicoExiste.marcarPronto();
+                    System.out.println("--- Serviço entregue ---");
+                    System.out.println(servicoExiste.getDescricao());
                 }
 
             } else if (op == 8) {
                 System.out.println("\n=== Serviços ===");
-                for (Servico servico : servicos) {
-                    if (servicos.size() > 1) {
+
+                if (servicos.isEmpty()) {
+                    System.out.println("[!] Sem serviços");
+                } else {
+                    for (Servico servico : servicos) {
                         System.out.println(servico.getDescricao());
-                    } else {
-                        System.out.println("[!] Sem serviços");
                     }
                 }
 

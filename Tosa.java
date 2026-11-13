@@ -26,7 +26,7 @@ public String getStatus() {
 
     @Override
     public String getDescricao() {
-        return "Tosa para " + pet.getNome() + " - Preço: R$ " + this.preco + " | Status: ";
+        return "Tosa para " + pet.getNome() + " - Preço: R$ " + this.preco + " | Status: " + this.getStatus();
     }
 
     @Override
