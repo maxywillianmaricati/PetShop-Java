@@ -34,15 +34,16 @@ public class Cliente {
         if (this.pets.size() == 0) {
             System.out.println("Sem animais");
         }
+
         for (Animal animal : pets) {
-            System.out.println(animal.descricao());
+            System.out.println("ID do Pet: " + animal.getId() + "\nDescrição: " + animal.descricao());
         }
     }
 
     public Animal buscaPet(int id) {
-        for (int i = 0; i < pets.size(); i++) {
-            if (pets.get(i).getId() == id) {
-                return pets.get(i);
+        for (Animal animal : pets) {
+            if (animal.getId() == id) {
+                return animal;
             }
         }
         return null;
